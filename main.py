@@ -49,8 +49,7 @@ class Human:
         self.satiety -= 5
         self.thirst -= 2
 
-
-    def shoping(self,manage):
+    def shopping(self, manage):
         if self.car.drive():
             pass
         else:
@@ -62,40 +61,48 @@ class Human:
         if manage == "fuel":
             print("I bought fuel!")
             self.money -= 100
-            self.car.fuel == 100
-        elif manage == "food":
+            self.car.fuel = 100
+        elif manage == 'food':
+            print("Bought food!")
             self.money -= 50
             self.home.food += 50
-        elif manage == "water":
+        elif manage == 'water':
+            print("Bought water!")
             self.money -= 5
             self.home.water += 5
-        elif manage == "delicatese":
-            print("Im happy!")
+        elif manage == "delicacies":
+            print("I'm happy!")
             self.gladness += 10
-            self.money -= 5
+            self.money -= 15
             self.satiety += 2
 
     def chill(self):
-        pass
+        self.gladness += 15
 
     def clean_Home(self):
-        pass
+        self.home.mess == 0
 
     def to_repair(self):
-        pass
+        self.car.strength == 100
 
     def days_indexes(self, day):
         d = f"Today the {day} of {self.name}'s indexes"
         print(f"{d:=^50}")
         human_i = f"{self.name}'s indexes"
+        print(f"{self.gladness}")
+        print(f"{self.thirst}")
+        print(f"{self.satiety}")
+        print(f"{self.gladness}")
         print(f"{human_i:=^50}")
+        home_i = f"{self.home.food} home indexes"
         print(f"Home indexes:=^50")
-
+        print(f"Water {self.home.water}")
+        print(f"Food {self.home.food}")
+        print(f"Mess {self.home.mess}")
         car_i = f"{self.car.brand} car indexes"
         print(f"{car_i:=^50}")
         print(f"Fuel: {self.car.fuel}")
         print(f"strength: {self.car.strength}")
-
 
     def is_alive(self):
         if self.gladness < 0:
@@ -157,7 +164,7 @@ class Auto:
             self.strength -= 1
             return True
         else:
-            print("The Car cannot move!")
+            print("The car cannot move!")
             return False
 
 
@@ -190,3 +197,4 @@ for day in range(1, 8):
     if nick.live(day) == False:
         break
 
+###
